@@ -38,8 +38,6 @@ def parse_args():
     parser.add_argument('result_file', type=str, nargs='?', default='appen_banking_predicted.jsonl')
     parser.add_argument('--n-clusters', type=int, default=10)
     parser.add_argument('--random-state', type=int, default=42)
-    parser.add_argument('--use-mrl', action='store_true', default= True, help='Apply MRL truncation in evaluation')
-    parser.add_argument('--mrl-dim', type=int, default=768, help='MRL embedding dimension')
     parser.add_argument("--llm-name", type=str, default="Qwen/Qwen2.5-3B")  # 추가
     return parser.parse_args()
 
@@ -112,7 +110,7 @@ def generate_theme_labels(utterances, labels, n_clusters, llm_name):
 
 
 def main(utterances, preferences, n_clusters, random_state, llm_name):
-    model = MPNET(use_mrl=args.use_mrl, mrl_dim=args.mrl_dim)
+    model = MPNET()
     embs = model.encode(utterances)
 
     logger.info("🔢 Performing KMeans clustering...")
