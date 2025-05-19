@@ -11,5 +11,6 @@ MRL에 대한 것은 Google Docs를 참고해주세요!
 requirements.txt 만으로는 라이브러리 해결이 다 안됩니다.
 1. jupyter 설치해야 합니다.
 2. sentence-transformer가 3.x 이상이어야 SentenceTransformerTrainingArguments, SentenceTransformerTraininer를 사용할 수 있습니다. 최신 버전으로 설치해주세요.
+3. datasets 설치해야 합니다.
 
 detection.py는 클래스로 정의된 모델에 대한 inference고, detection2.py는 지정된 경로에서 모델을 불러옵니다.
